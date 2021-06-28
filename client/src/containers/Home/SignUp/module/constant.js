@@ -1,0 +1,1 @@
+export const OPEN_REGISTER_FORM = "SignUp/SignUpReducer/OPEN_REGISTER_FORM";

@@ -1,0 +1,31 @@
+@import "./utils/variables.scss";
+
+
+body{
+  // background: linear-gradient(
+  //   45deg,
+  //   rgba(66, 183, 245, 0.8) 0%,
+  //   rgba(66, 245, 189, 0.4) 100%
+  // ), url('./utils/image/apple-scanner.png');
+  width: 100%;
+  // background: linear-gradient(
+  //   to bottom,
+  //   rgb(255, 255, 255),
+  //   rgba(66, 183, 245, 0.8)
+  // ), url('./utils/image/apple-scanner.png');
+  margin: 0;
+  // background-image: linear-gradient(to bottom ,$lighter-gray 0%, $light-gray 100%), url('./utils/image/apple-scanner.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $gray;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  text-align: center;
+}

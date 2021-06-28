@@ -1,0 +1,80 @@
+@import "../../../utils/variables.scss";
+
+.form-panel {
+  padding: 60px calc(5% + 60px) 60px 60px;
+  box-sizing: border-box;
+
+  // Panel Two
+  &.two {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 95%;
+    background: $accent;
+    width: 100%;
+    min-height: 100%;
+    padding: 60px calc(10% + 60px) 60px 60px;
+    transition: 0.3s ease;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 60px;
+      left: 1.5%;
+      background: rgba($white, 0.2);
+      height: 30px;
+      width: 2px;
+      transition: 0.3s ease;
+    }
+
+    &:after {
+      left: 3%;
+    }
+
+    &:hover {
+      left: 93%;
+      box-shadow: 0 0 10px rgba($black, 0.2);
+
+      &:before,
+      &:after {
+        opacity: 0;
+      }
+    }
+
+    &.active {
+      left: 10%;
+      box-shadow: 0 0 10px rgba($black, 0.2);
+      cursor: default;
+
+      &:before,
+      &:after {
+        opacity: 0;
+      }
+    }
+    .headerTwo {
+      position: relative;
+      z-index: 40;
+      color: $white;
+    }
+
+    .labelTwo {
+      color: $white;
+    }
+
+    .inputTwo {
+      color: $white;
+
+      &:focus {
+        color: $white;
+      }
+    }
+
+    .buttonTwo {
+      background: $white;
+      color: $accent;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "../../utils/variables.scss";
+
+.avatar{
+    display: flex;
+    justify-content: flex-end;
+    .dropdown{
+        .dropdown-toggle{
+            .avatar-name{
+                width: 30px;
+                text-overflow: ellipsis;
+            }
+            &:focus{
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        .dropdown-menu{
+            background-color: rgba(66, 183, 245, 0.8);
+            .dropdown-item{
+                color: $white;
+                cursor: pointer;
+                &:hover{
+                    color: $black;
+                }
+            }
+        }
+    }
+}

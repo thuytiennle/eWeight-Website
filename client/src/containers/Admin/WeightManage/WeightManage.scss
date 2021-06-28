@@ -1,0 +1,24 @@
+@import "../../../utils/variables.scss";
+
+.weight-manage{
+    .input-group{
+        font-size: 1rem;
+        width: 60%;
+        .input-group-text{
+            font-weight: $bold;
+            background-color: transparent;
+            border: none;
+        }
+    }
+
+    @media only screen and (max-width: 992px) {
+        .input-group{
+          font-size: 0.8rem;
+          width: 100%;
+          .form-control{
+            font-size: 0.8rem;
+            width: 100%;
+          }
+        }
+      }
+}

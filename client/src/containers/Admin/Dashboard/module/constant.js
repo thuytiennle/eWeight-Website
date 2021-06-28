@@ -1,0 +1,2 @@
+export const SELECT_USER_MANAGEMENT = "DashBoard/DashBoardReducer/SELECT_USER_MANAGEMENT";
+export const SELECT_WEIGHT_MANAGEMENT = "DashBoard/DashBoardReducer/SELECT_WEIGHT_MANAGEMENT";
