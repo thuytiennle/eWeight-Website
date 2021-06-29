@@ -1,3 +1,4 @@
+import React from 'react';
 import "./App.scss";
 import { Router, Route, Switch } from "react-router-dom";
 import { PageNotFound } from "./containers/PageNotFound";

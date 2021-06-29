@@ -24,7 +24,6 @@ function SignIn() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(user);
     dispatch(actSignIn(user, history));
   };
 
