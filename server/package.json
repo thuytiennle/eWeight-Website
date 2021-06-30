@@ -1,0 +1,51 @@
+{
+  "name": "iot-farm",
+  "version": "1.0.0",
+  "description": "ExpressJS upload csv file to MySQL database",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -- index.js",
+    "sync": "node ./db/sync",
+    "seed": "sequelize db:seed:all",
+    "migrate": "sequelize db:migrate",
+    "apidoc": "apidoc -i ./apidoc -o ./apidoc/output --silent"
+  },
+  "keywords": [
+    "expressjs",
+    "upload",
+    "import",
+    "csv",
+    "mysql",
+    "api"
+  ],
+  "author": {
+    "name": "Khoa ACE",
+    "email": "khoaace@gmail.com"
+  },
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "express": "4.17.1",
+    "cors": "2.8.5",
+    "helmet": "4.6.0",
+    "fast-csv": "4.3.6",
+    "multer": "1.4.2",
+    "mysql2": "2.2.5",
+    "sequelize": "6.6.4",
+    "dotenv": "10.0.0",
+    "moment": "2.29.1",
+    "winston": "3.3.3",
+    "qrcode": "1.4.4",
+    "apidoc": "0.28.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.7",
+    "@babel/core": "7.14.6",
+    "@babel/node": "7.14.7",
+    "@babel/preset-env": "7.14.7",
+    "@babel/plugin-transform-runtime": "7.14.5"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

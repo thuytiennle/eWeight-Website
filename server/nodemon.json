@@ -1,0 +1,25 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "assets",
+    "logs",
+    "apidoc",
+    "template",
+    "node_modules/**/node_modules"
+  ],
+  "execMap": {
+    "js": "babel-node"
+  },
+  "watch": [
+    "api/",
+    "config/",
+    "db/",
+    "middlewares/",
+    "utils/",
+    ".env",
+    "app.js",
+    "index.js"
+  ],
+  "ext": "js,json,ejs"
+}

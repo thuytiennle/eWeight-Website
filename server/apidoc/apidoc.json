@@ -1,0 +1,12 @@
+{
+  "name": "IoT Farm API DOCUMENT",
+  "version": "0.1.0",
+  "description": "API Docs",
+  "title": "API Docs | IoT Farm",
+  "template": {
+    "withCompare": false
+  },
+  "order": [
+    "Product"
+  ]
+}
