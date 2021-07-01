@@ -1,7 +1,7 @@
 import React from "react";
 import { ModalButton } from "../../../components/Button";
 import { Input } from "../../../components/Input";
-import {FaPen} from 'react-icons/fa'
+import {FaPen} from 'react-icons/fa';
 
 function WeightEditDeleteCell({data}) {
   const handleOnClickModal = () => {};

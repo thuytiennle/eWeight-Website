@@ -1,7 +1,7 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {useHistory} from 'react-router-dom';
 import "./Avatar.scss";
-import {FaUserEdit,FaRegArrowAltCircleRight} from 'react-icons/fa';
+import {FaRegArrowAltCircleRight} from 'react-icons/fa';
 // import avatarimg from "../../utils/image/apple-scanner.png"
 
 function Avatar() {
