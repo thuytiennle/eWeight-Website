@@ -128,5 +128,53 @@ module.exports = {
     } catch (err) {
       throw err;
     }
-  }
+  },
+
+  updateById: async (id, query) => {
+    try {
+      const { sku = '', name = '', origin = '', importDate = '', weight = '' } = query;
+      const product = await Product.findByPk(id);
+      
+      if (!product) {
+        throw new IoTError(404, 'Product not found');
+      }
+      if (sku) {
+        product.sku = sku;
+      }
+      if (name) {
+        product.name = name;
+      }
+      if (origin) {
+        product.origin = origin;
+      }
+      if (importDate && moment(importDate, 'DD/MM/YYYY').isValid()) {
+        product.importDate = moment.utc(importDate, 'DD/MM/YYYY', true).toISOString();
+      }
+      if (weight && !isNaN(Number(weight))) {
+        product.weight = Number(weight);
+      }
+
+      let result = await product.save();
+
+      return result;
+      
+    } catch (err) {
+      throw err;
+    }
+  },
+
+  deleteById: async (id) => {
+    try {
+      const product = await Product.findByPk(id);
+
+      if (!product) {
+        throw new IoTError(404, 'Product not found');
+      }
+      // delete record from database
+      await product.destroy({ force: true });
+      return product;
+    } catch (err) {
+      throw err;
+    }
+  },
 };

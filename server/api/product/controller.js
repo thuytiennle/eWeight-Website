@@ -2,7 +2,7 @@ const fs = require('fs');
 const csv = require('fast-csv');
 const moment = require('moment');
 const { IoTError } = require('./../../utils/error');
-const { createMulti, getById, getList } = require('./service');
+const { createMulti, getById, getList, deleteById, updateById } = require('./service');
 
 module.exports = {
   upload: async (req, res, next) => {
@@ -53,6 +53,26 @@ module.exports = {
       const result = await getById(req.params.id || 0);
 
       res.success({ rows: [result], count: 1 });
+    } catch (err) {
+      return next(err);
+    }
+  },
+
+  updateById: async (req, res, next) => {
+    try {
+      const result = await updateById(req.params.id, req.body);
+
+      res.success({ product: result });
+    } catch (err) {
+      return next(err);
+    }
+  },
+
+  deleteById: async (req, res, next) => {
+    try {
+      const result = await deleteById(req.params.id || 0);
+
+      res.success({ product: result });
     } catch (err) {
       return next(err);
     }

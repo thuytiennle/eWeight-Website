@@ -120,3 +120,98 @@
  *       "message": "File not found"
  *     }
  */
+
+/**
+ * @api {put} /api/product/:id 05-Update Product
+ * @apiSampleRequest /api/product/2
+ * @apiName UpdateProduct
+ * @apiGroup Product
+ *
+ * @apiHeader {String} Content-Type=application/json
+ *
+ * @apiParam  {Number} id Product ID
+ * @apiParam  {String} [name] Product name
+ * @apiParam  {String} [sku] Product sku
+ * @apiParam  {String} [origin] Product origin
+ * @apiParam  {String} [importDate] Product import date (Format: DD/MM/YYYY)
+ * @apiParam  {Number} [weight] Product weight
+ *
+ * @apiSuccess (Success 200) {Object} data Deleted Product
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *      {
+ *          "status": "success",
+ *          "data": {
+ *              "rows": [
+ *                  {
+ *                      "id": 2,
+ *                      "name": "Kiwi",
+ *                      "sku": "0004",
+ *                      "origin": "Dak lak",
+ *                      "weight": 300,
+ *                      "importDate": "23/02/2021",
+ *                      "qrCode": "data:image/png;base64,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"
+ *                  }
+ *              ],
+ *              "count": 1
+ *          },
+ *          "statusCode": 200,
+ *          "message": "success"
+ *      }
+ *
+ * @apiError error NotFound
+ *
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 404 NotFound
+ *     {
+ *       "status": "error",
+ *       "statusCode": 404,
+ *       "message": "Product not found"
+ *     }
+ */
+
+
+/**
+ * @api {delete} /api/product/:id 04-Delete Product
+ * @apiSampleRequest /api/product/5
+ * @apiName DeleteProduct
+ * @apiGroup Product
+ *
+ * @apiHeader {String} Content-Type=application/json
+ *
+ * @apiParam  {Number} id Product ID
+ *
+ * @apiSuccess (Success 200) {Object} data Deleted Product
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *      {
+ *          "status": "success",
+ *          "data": {
+ *              "product": {
+ *                  "id": 5,
+ *                  "sku": "O005",
+ *                  "name": "Orange",
+ *                  "origin": "Long An",
+ *                  "importDate": "2021-06-20T00:00:00.000Z",
+ *                  "weight": 545,
+ *                  "createdAt": "2021-07-03T13:32:13.000Z",
+ *                  "updatedAt": "2021-07-03T14:42:02.171Z",
+ *                  "deletedAt": "2021-07-03T14:42:02.170Z"
+ *              }
+ *          },
+ *          "statusCode": 200,
+ *          "message": "success"
+ *      }
+ *
+ * @apiError error NotFound
+ *
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 404 NotFound
+ *     {
+ *       "status": "error",
+ *       "statusCode": 404,
+ *       "message": "Product not found"
+ *     }
+ */
