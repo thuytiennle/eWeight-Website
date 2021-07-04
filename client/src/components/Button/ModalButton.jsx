@@ -5,9 +5,8 @@ function ModalButton({
   buttonColor,
   modalName,
   dataBStarget,
-  handClickPopUpModal,
   functionButtonName,
-  handleOnClick,
+  handleSaveEditForm,
   children,
 }) {
   return (
@@ -18,7 +17,6 @@ function ModalButton({
         className={buttonColor ? `btn btn-${buttonColor}` : "btn btn-success"}
         data-bs-toggle="modal"
         data-bs-target={`#${dataBStarget}`}
-        onClick = {handClickPopUpModal}
       >
         {buttonName}
       </button>
@@ -53,10 +51,10 @@ function ModalButton({
                 Close
               </button>
               <button
-                type="submit"
+                type="button"
                 className="btn btn-success"
-                onClick={handleOnClick}
                 data-bs-dismiss="modal"
+                onClick = {handleSaveEditForm}
               >
                 {functionButtonName}
               </button>
