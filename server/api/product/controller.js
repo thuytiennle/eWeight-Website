@@ -7,6 +7,7 @@ const { createMulti, getById, getList } = require('./service');
 module.exports = {
   upload: async (req, res, next) => {
     try {
+      console.log('===========================>');
       if (!req.file || !req.file.filename) {
         throw new IoTError(404, 'File not found.');
       }
@@ -32,6 +33,7 @@ module.exports = {
 
       res.success(results);
     } catch (err) {
+      console.log(err);
       return next(err);
     }
   },

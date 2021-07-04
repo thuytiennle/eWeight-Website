@@ -1,14 +1,24 @@
 import React from "react";
 
-function ModalButton({buttonName, buttonColor, modalName, dataBStarget, functionButtonName, handleOnClick , children}) {
+function ModalButton({
+  buttonName,
+  buttonColor,
+  modalName,
+  dataBStarget,
+  handClickPopUpModal,
+  functionButtonName,
+  handleOnClick,
+  children,
+}) {
   return (
     <div>
       {/* Button trigger modal */}
       <button
         type="button"
-        className={buttonColor? `btn btn-${buttonColor}`: "btn btn-success"}
+        className={buttonColor ? `btn btn-${buttonColor}` : "btn btn-success"}
         data-bs-toggle="modal"
         data-bs-target={`#${dataBStarget}`}
+        onClick = {handClickPopUpModal}
       >
         {buttonName}
       </button>
@@ -42,7 +52,12 @@ function ModalButton({buttonName, buttonColor, modalName, dataBStarget, function
               >
                 Close
               </button>
-              <button type="button" className="btn btn-success" onClick={handleOnClick}>
+              <button
+                type="submit"
+                className="btn btn-success"
+                onClick={handleOnClick}
+                data-bs-dismiss="modal"
+              >
                 {functionButtonName}
               </button>
             </div>

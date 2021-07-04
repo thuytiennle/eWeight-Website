@@ -14,10 +14,10 @@ export const actAddWeight = (weightFile) => {
   return dispatch => {
     dispatch(actAddWeightRequest());
     Axios({
-        method: "POST",
+        method: "post",
         url: `http://localhost:8080/api/product/upload`,
-        data: weightFile,
-        headers: { "Content-Type": "form-data" },
+        data: weightFile ? weightFile : null, 
+        headers: {"Content-Type": "form-data"} 
     })
     .then(result =>{
         dispatch(actAddWeightSuccess(result.data));

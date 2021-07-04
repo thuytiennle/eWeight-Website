@@ -1,8 +1,7 @@
 import React from "react";
 import "./Header.scss";
 
-function Header(props) {
-    var {children, headerClass, ...props} = props;
+function Header({children, headerClass, ...props}) {
   return (
     <div className="form-header">
       <h1 className={headerClass? `header ${headerClass}`:"header"} {...props}>{children}</h1>

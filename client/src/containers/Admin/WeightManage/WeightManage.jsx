@@ -35,7 +35,7 @@ function WeightManage() {
 
   const handleSubmitFileUpload = () => {
     let formData = new FormData();
-    formData.append("file", file, file.name);
+    formData.append("file", file);
     console.log(formData);
     // Push to action to call API
     dispatch(actAddWeight(formData));

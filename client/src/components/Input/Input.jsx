@@ -1,9 +1,7 @@
 import React from 'react';
 import './Input.scss';
 
-function Input(props) {
-
-  var {label, labelClass, inputClass, ...props} = props; 
+function Input({label, labelClass, inputClass, ...props}) {
 
   return (
     <div className="form-group">
