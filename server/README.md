@@ -67,3 +67,30 @@ API URL: `http://localhost:{port}/api`
 | `sku`     | `string` | **Optional**. Product sku.        |
 | `origin`  | `string` | **Optional**. Product origin.     |
 | `weight`  | `number` | **Optional**. Product weight.     |
+
+
+#### Update Product
+
+```http
+  PUT /api/product/${id}
+```
+
+| Parameter   | Type     | Description                       |
+| :--------   | :------- | :-------------------------------- |
+| `id`        | `number` | **Optional**. Product ID.         |
+| `name`      | `string` | **Optional**. Product name.       |
+| `sku`       | `string` | **Optional**. Product sku.        |
+| `origin`    | `string` | **Optional**. Product origin.     |
+| `importDate`| `string` | **Optional**. Product importDate  | 
+| `weight`    | `number` | **Optional**. Product weight.     |
+
+
+#### Delete Product
+
+```http
+  DELETE /api/product/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Product ID          |
