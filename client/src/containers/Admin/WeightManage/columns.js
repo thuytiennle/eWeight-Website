@@ -31,6 +31,7 @@ export const columns = [
     name: "Weight",
     selector: "weight",
     sortable: true,
+    cell: (data) => `${data.weight} (g)`
   },
   {
     name: "QR Code",

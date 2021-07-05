@@ -15,21 +15,29 @@ import {
 import Axios from "axios";
 
 export const actAddWeight = (weightFile) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(actAddWeightRequest());
-    Axios({
-      method: "post",
-      url: `http://localhost:8080/api/product/upload`,
-      data: weightFile ? weightFile : null,
-      headers: { "Content-Type": "form-data" },
-    })
-      .then((result) => {
-        dispatch(actAddWeightSuccess(result.data));
-        console.log(result.data);
+    try{
+      const uploadFile = await Axios({
+        method: "post",
+        url: `http://localhost:8080/api/product/upload`,
+        data: weightFile ? weightFile : null,
+        headers: { "Content-Type": "form-data" },
       })
-      .catch((err) => {
-        dispatch(actAddWeightFailed(err));
+  
+      dispatch(actAddWeightSuccess(uploadFile.data));
+
+      // Get list Weight
+      const listWeight = await Axios({
+        method: "GET",
+        url: `http://localhost:8080/api/product`,
       });
+      // Push value to store
+      dispatch(actGetListWeightSuccess(listWeight.data));
+
+    }catch(err){
+      dispatch(actAddWeightFailed(err));
+    }
   };
 };
 
