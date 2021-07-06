@@ -7,6 +7,7 @@ import HomeTemplate from "./templates/HomeTemplate";
 import AdminTemplate from "./templates/AdminTemplate";
 import {history} from "./utils/history";
 
+
 function App() {
   const showMenuHome = (routes) => {
     if (routes && routes.length > 0) {

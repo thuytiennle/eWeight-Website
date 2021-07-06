@@ -1,5 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+// Attach store to app that we can manage all states of app
+import { Provider } from "react-redux";
+import store from "./utils/configureStore";
+
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import App from "./App";
@@ -13,10 +17,6 @@ import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 // Import project pro-sidebar
 import "react-pro-sidebar/dist/css/styles.css";
 
-// Attach store to app that we can manage all states of app
-import { Provider } from "react-redux";
-import store from "./utils/configureStore";
-
 // optional configuration for alert
 const options = {
   // you can also just use 'bottom center'
@@ -28,10 +28,10 @@ const options = {
 };
 
 ReactDOM.render(
-  <AlertProvider template={AlertTemplate} {...options}>
-    <Provider store={store}>
+  <Provider store={store}>
+    <AlertProvider template={AlertTemplate} {...options}>
       <App />
-    </Provider>
-  </AlertProvider>,
+    </AlertProvider>
+  </Provider>,
   document.getElementById("root")
 );

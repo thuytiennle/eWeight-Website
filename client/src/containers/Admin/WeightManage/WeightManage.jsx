@@ -5,10 +5,14 @@ import "./WeightManage.scss";
 import { columns } from "./columns";
 import { actAddWeight, actGetListWeight } from "./module/action";
 import { useAlert } from "react-alert";
+import {FaDownload} from 'react-icons/fa';
+import ExcelJS  from 'exceljs';
+import saveAs from "file-saver";
 
 const isEmptyObject = (object) =>{
   return Object.keys(object).length === 0 && object.constructor === Object;
 }
+
 
 function WeightManage() {
   const dispatch = useDispatch();
@@ -96,6 +100,49 @@ function WeightManage() {
   };
   // console.log(rows);
 
+  // Excel download click
+  const handleDownloadClick = () => {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Main sheet');
+
+    worksheet.columns = [
+      { header: 'Product Id', key: 'id', width: 15 },
+      { header: 'Product Name', key: 'name', width: 30 },
+      { header: 'SKU', key: 'sku', width: 15 },
+      { header: 'Origin', key: 'origin', width: 30 },
+      { header: 'Date', key: 'importDate', width: 15 },
+      { header: 'Weight', key: 'weight', width: 15 },
+      { header: 'QR Code', key: 'qrCode', width: 50 },
+    ];
+
+    // If listWeight.data.rows has element
+    if(listWeight && listWeight.data && listWeight.data.rows && listWeight.data.rows.length> 0){
+      listWeight.data.rows.forEach((row, index) => {
+        let copyRow = {...row};
+        delete copyRow.qrCode;
+        worksheet.addRow(copyRow);
+        const imageId = workbook.addImage({
+          base64: row.qrCode,
+          extension: 'png',
+        });
+        worksheet.addImage(imageId, {
+          tl: { col: 6.1, row: index + 1.1 },
+          ext: { width: 100, height: 100 }
+        });
+      });
+      // Change worksheet row height 
+      for(let i=2; i <= listWeight.data.rows.length+1; i++){
+        worksheet.getRow(i).height = 110;
+      }
+    };
+
+    workbook.xlsx.writeBuffer().then(function(buffer) {
+      saveAs(new Blob([buffer], { type: "application/octet-stream" }), "WeightData.xlsx");
+    });
+
+  }
+
+
   return (
     <div className="weight-manage">
       <div className="input-group mb-3">
@@ -113,13 +160,9 @@ function WeightManage() {
           Upload
         </button>
       </div>
-      {/* <div className="alert alert-success">{fileUploadSuccess.status}</div> */}
-      {/* {fileUploadSuccess && fileUploadSuccess.length > 0 && (
-        <Alert variant="success">{fileUploadSuccess.message}</Alert>
-      )}
-      {uploadError && uploadError.length > 0 && (
-        <Alert variant="danger">{uploadError.message}</Alert>
-      )} */}
+      <div style={{"display":"flex", "justifyContent": "flex-end"}}>
+        <div className="btn" onClick={handleDownloadClick}><FaDownload fontSize="1.2rem"/></div> 
+      </div>
       {/* if have rows */}
       {listWeight && listWeight.data && (
         <Table columns={columns} data={listWeight.data.rows} />
