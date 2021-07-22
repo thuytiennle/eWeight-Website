@@ -27,13 +27,13 @@ const SidebarContent = ({
       {isSelectUserManage && <UserManage />}
       {isSelectWeightManage && <WeightManage />}
 
-      <footer>
+      {/* <footer>
         <small style={{ color: 'black' }}>
           © 2021 made with <FaHeart style={{ color: 'red' }} /> by -{' '}
           Le Ngan
         </small>
         <br />
-      </footer>
+      </footer> */}
     </main>
   );
 };
