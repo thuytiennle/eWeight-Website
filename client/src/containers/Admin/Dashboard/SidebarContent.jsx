@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector} from 'react-redux';
-import { FaHeart, FaBars } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 import {UserManage} from '../UserManage';
 import {Avatar} from '../../../components/Avatar';
 import {WeightManage} from '../WeightManage';
