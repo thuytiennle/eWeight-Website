@@ -21,7 +21,9 @@ function renameFileName (file) {
 }
 
 const csvFilter = (req, file, cb) => {
-  if (file?.mimetype.includes('csv')) {
+  const fileExtension = path.extname(file?.originalname);
+
+  if (file?.mimetype.includes('csv') || fileExtension === '.csv') {
     cb(null, true);
   } else {
     cb('Please upload only csv file.', false);
